@@ -1,36 +1,33 @@
 const tools = require('../assets/tools')
 const database = require('../assets/database')
+const mongoose = require('mongoose')
 
 module.exports = function(app){
 
   // CREATE PROJECT
-  app.post('/projects', tools.authenticateToken, (req, res) => {
-    const project = {
-      id: tools.createProjectId(),
+  app.post('/projects', tools.authenticateToken, async (req, res) => {
+
+    // PUSH TO DATABASE
+    const user = await database.User.findOne({"_id": req.user._id})
+
+    const project = await database.Project.create({
       name: req.body.name,
       description: req.body.description,
       images: req.body.image,
-      tags: req.body.tags
-    }
-    const user = database.users.find((user)=>user.name==req.user.name)
-    user.projects.push(project.id)
-    database.projects.push(project)
-    res.status(200).send()
-  })
-
-  // GET ALL PROJECTS
-  app.get('/projects', (req, res) =>{
-    console.log(database.projects)
+      tags: req.body.tags,
+      owner: user._id,
+      collaborators: req.body.collaborators
+    });
+    user.projects.push(project._id)
+    await user.save()
     res.status(200).send()
   })
 
   // GET PROJECT USING ID
-  app.get('/projects/:id', (req, res)=>{
-    console.log(req.params.id)
-    const project = database.projects.find((project)=>project.id==req.params.id)
+  app.get('/projects/:id', async (req, res)=>{
+    const project = await database.Project.findOne({"_id": req.params.id})
     if (project==null){ return res.status(400).send("Project does not exist")}
-    console.log(project)
-    res.status(200).json({project})
+    else{ res.status(200).json({project}) }
   })
 
   // GET RECOMMENDED PROJECTS [AUTH]

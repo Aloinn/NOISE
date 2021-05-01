@@ -5,34 +5,37 @@ const tools = require('../assets/tools')
 
 module.exports = function(app){
 
-  // ALL USERS
-  app.get('/users', (req, res) => {
-    res.status(200).json(database.users)
+  // SPECIFIC USER
+  app.get('/users/:id', async (req, res) => {
+    const user = await database.User.findOne({"_id": req.params.id})
+    if (user==null){ return res.status(400).send("User does not exist")}
+    else{ res.status(200).json({user}) }
   });
 
   // REGISTER
   app.post('/users', async (req, res) => {
-    const user = database.users.find((user) => user.name==req.body.name)
-    if (user!=null){ return res.status(400).send("Username already exists")}
     try {
 
       // PASSWORD HASHING
       const salt = await bcrypt.genSalt()
       const hashedPassword = await bcrypt.hash(req.body.password, salt)
-      const user = {
-        name: req.body.name,
-        email: req.body.email,
-        projects: [],
-        test: 2,
-        password: hashedPassword,
-      }
 
       // PUSH TO DATABASE
-      database.users.push(user)
+      let user = await database.User.findOne({"name": req.body.name})
+      if(user!=null){ res.status(400).send("User exists"); }
+      else{
+        let user = await database.User.create({
+          name: req.body.name,
+          email: req.body.email,
+          projects: [],
+          tags:[],
+          password: hashedPassword,
+        });
 
-      // GIVE USER JSONWEBTOKEN
-      const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-      res.status(200).json({accessToken: accessToken})
+        // GIVE USER JSONWEBTOKEN
+        const accessToken = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET)
+        res.status(200).json({accessToken: accessToken})
+      }
 
       // ERROR
     } catch {res.status(500).send()}
@@ -40,19 +43,24 @@ module.exports = function(app){
 
   // LOGIN
   app.post('/users/login', async (req, res) => {
-    const user = database.users.find((user) => user.name==req.body.name)
-    if (user == null){ return res.status(400).send("No users") }
+
     try {
       // COMPARES PASSWORD HASH
-      const result = await bcrypt.compare(req.body.password, user.password)
-      if(result){
+      const user = await database.User.findOne({"name": req.body.name})
 
-        // SUCCESSFUL LOGIN, SET JSONWEBTOKEN
-        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-        res.status(200).json({accessToken: accessToken})
+      // USER EXISTS?
+      if (user == null){ return res.status(400).send("No users") }
+      else{
+        const result = await bcrypt.compare(req.body.password, user.password)
+        if(result){
 
-        //UNSUCESSFUL
-      } else {res.status(400).send("Not allowed")}
+          // SUCCESSFUL LOGIN, SET JSONWEBTOKEN
+          const accessToken = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET)
+          res.status(200).json({accessToken: accessToken})
+
+          //UNSUCESSFUL
+        } else {res.status(400).send("Not allowed")}
+      }
 
     // ERROR
     } catch { res.status(500).send() }
