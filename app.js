@@ -15,9 +15,9 @@ app.listen(
   () => console.log(`alive on http://localhost:${PORT}`)
 )
 
-require('./users')(app);
-require('./projects')(app);
-tools = require('./tools')
+require('./endpoints/users')(app);
+require('./endpoints/projects')(app);
+const tools = require('./assets/tools')
 
 app.get('/test', tools.authenticateToken, (req, res)=>{
   console.log(req.user)
