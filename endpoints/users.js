@@ -12,6 +12,17 @@ module.exports = function(app){
     else{ res.status(200).json({user}) }
   });
 
+  // SPECIFIC USER
+  app.put('/users/:id', tools.authenticateToken, async (req, res) => {
+    const user = await database.User.findOne({"_id": req.params.id})
+    if (user==null){ return res.status(400).send("User does not exist")}
+    else{
+      user.tags = req.body.tags
+      user.save()
+      res.status(200).json({user})
+    }
+  });
+
   // REGISTER
   app.post('/users', async (req, res) => {
     try {
@@ -21,8 +32,8 @@ module.exports = function(app){
       const hashedPassword = await bcrypt.hash(req.body.password, salt)
 
       // PUSH TO DATABASE
-      let user = await database.User.findOne({"name": req.body.name})
-      if(user!=null){ res.status(400).send("User exists"); }
+      let user = await database.User.findOne({"email": req.body.email})
+      if(user!=null){ res.status(400).send("User with email already exists"); }
       else{
         let user = await database.User.create({
           name: req.body.name,
@@ -46,7 +57,7 @@ module.exports = function(app){
 
     try {
       // COMPARES PASSWORD HASH
-      const user = await database.User.findOne({"name": req.body.name})
+      const user = await database.User.findOne({"email": req.body.email})
 
       // USER EXISTS?
       if (user == null){ return res.status(400).send("No users") }

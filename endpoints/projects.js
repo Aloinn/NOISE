@@ -30,6 +30,15 @@ module.exports = function(app){
     else{ res.status(200).json({project}) }
   })
 
+  // DELETE PROJECT
+  app.delete('/projects/:id', tools.authenticateToken, async (req, res)=>{
+    const project = await database.Project.findOne({"_id": req.params.id})
+    if (project==null){ return res.status(400).send("Project does not exist")}
+    else{
+      res.status(200).json({project})
+    }
+  })
+
   // GET RECOMMENDED PROJECTS [AUTH]
   app.get('/projects/recommended', tools.authenticateToken, async(req, res) =>{
     console.log()
