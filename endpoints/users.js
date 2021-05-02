@@ -67,7 +67,7 @@ module.exports = function(app){
 
     // GIVE USER JSONWEBTOKEN
     const accessToken = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET)
-    res.status(200).json({accessToken: accessToken})
+    res.status(200).json({accessToken: accessToken, user:user._id})
 
   })
 
@@ -86,7 +86,7 @@ module.exports = function(app){
 
           // SUCCESSFUL LOGIN, SET JSONWEBTOKEN
           const accessToken = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET)
-          res.status(200).json({accessToken: accessToken})
+          res.status(200).json({accessToken: accessToken, user:user._id})
 
           //UNSUCESSFUL
         } else {res.status(400).send("Not allowed")}
