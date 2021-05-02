@@ -1,0 +1,34 @@
+POST https://ruhack-noise.herokuapp.com/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGU0YmY1YmUyNjJkMDAxNTIxMjIxNSIsIm5hbWUiOiJBbGFpbiBMYW0iLCJjaXR5IjoiVG9yb250byIsImVtYWlsIjoiYWxhaW5Abm9pc2UiLCJwYXNzd29yZCI6IiQyYiQxMCRiQmFhdy95NzNVSVJja3dvZ0NWUVNPb2paaTI0L3RPMndZQjlQVUpWc1N6Qm96M0ttNnQxSyIsIl9fdiI6MH0sImlhdCI6MTYxOTkzODY3OX0.UBpKZWkbwc95zKDLyMBGF7S_lJ8nuBZwX3pSsWNtY58
+Content-type: application/json
+
+{
+  "name": "Alek Kenderwood",
+  "email": "KW@noise",
+  "password": "p",
+  "image": "https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/7.jpg"
+}
+
+---
+
+POST https://ruhack-noise.herokuapp.com/users
+Content-type: application/json
+
+{
+	"name": "Toyvan Hoang",
+	"email": "TH@noise",
+	"password": "p",
+	"image": "https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/5.jpg"
+}
+
+---
+
+POST https://ruhack-noise.herokuapp.com/users
+Content-type: application/json
+
+{
+	"name": "Trai Enriques",
+	"email": "TE@noise",
+	"password": "p",
+	"image": "https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/4.jpg"
+}

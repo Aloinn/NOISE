@@ -1,4 +1,7 @@
-POST http://localhost:8013/projects
+// http://localhost:8013/
+// https://ruhack-noise.herokuapp.com
+
+POST https://ruhack-noise.herokuapp.com/projects
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGU0YmY1YmUyNjJkMDAxNTIxMjIxNSIsIm5hbWUiOiJBbGFpbiBMYW0iLCJjaXR5IjoiVG9yb250byIsImVtYWlsIjoiYWxhaW5Abm9pc2UiLCJwYXNzd29yZCI6IiQyYiQxMCRiQmFhdy95NzNVSVJja3dvZ0NWUVNPb2paaTI0L3RPMndZQjlQVUpWc1N6Qm96M0ttNnQxSyIsIl9fdiI6MH0sImlhdCI6MTYxOTkzODY3OX0.UBpKZWkbwc95zKDLyMBGF7S_lJ8nuBZwX3pSsWNtY58
 Content-type: application/json
 
@@ -22,13 +25,9 @@ Content-type: application/json
   "tags": ["front-end developer", "ui designer"]
 }
 
-// http://localhost:8013/
-// https://ruhack-noise.herokuapp.com
-
-
 ---
 
-POST http://localhost:8013/projects
+POST https://ruhack-noise.herokuapp.com/projects
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGU0YmY1YmUyNjJkMDAxNTIxMjIxNSIsIm5hbWUiOiJBbGFpbiBMYW0iLCJjaXR5IjoiVG9yb250byIsImVtYWlsIjoiYWxhaW5Abm9pc2UiLCJwYXNzd29yZCI6IiQyYiQxMCRiQmFhdy95NzNVSVJja3dvZ0NWUVNPb2paaTI0L3RPMndZQjlQVUpWc1N6Qm96M0ttNnQxSyIsIl9fdiI6MH0sImlhdCI6MTYxOTkzODY3OX0.UBpKZWkbwc95zKDLyMBGF7S_lJ8nuBZwX3pSsWNtY58
 Content-type: application/json
 
@@ -37,4 +36,17 @@ Content-type: application/json
   "description": "This app is made to ease the process of booking appointments. Users are able to track their appointments, medical history and even well chat with medical professionals for any health inquiries.",
   "images": ["https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/Open+Book/1.png","https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/Open+Book/1.png"],
   "tags": ["front-end developer"]
+}
+
+---
+
+POST https://ruhack-noise.herokuapp.com/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGU0YmY1YmUyNjJkMDAxNTIxMjIxNSIsIm5hbWUiOiJBbGFpbiBMYW0iLCJjaXR5IjoiVG9yb250byIsImVtYWlsIjoiYWxhaW5Abm9pc2UiLCJwYXNzd29yZCI6IiQyYiQxMCRiQmFhdy95NzNVSVJja3dvZ0NWUVNPb2paaTI0L3RPMndZQjlQVUpWc1N6Qm96M0ttNnQxSyIsIl9fdiI6MH0sImlhdCI6MTYxOTkzODY3OX0.UBpKZWkbwc95zKDLyMBGF7S_lJ8nuBZwX3pSsWNtY58
+Content-type: application/json
+
+{
+  "name": "Safe Spot",
+  "description": "‘Get Me Home Safe’ is a web based application that visualizes the unsafe areas around the campus. When you open the application, a map will appear with the points where security incidents have occured recently. People can log in and submit reports of security incidents within the city. This application is community based, so all the points are reported by other users, or the police.",
+  "images": ["https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/Safe/Main.png","https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/Safe/2.png"],
+  "tags": ["ui designer"]
 }
