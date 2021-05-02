@@ -35,13 +35,18 @@ module.exports = function(app){
     const project = await database.Project.findOne({"_id": req.params.id})
     if (project==null){ return res.status(400).send("Project does not exist")}
     else{
-      res.status(200).json({project})
+      if(req.user._id.toString() == project.owner.toString()){
+        const project = await database.Project.findOneAndDelete({"_id": req.params.id})
+        res.status(200).send("Project deleted!")
+      } else {
+        res.status(400).send("Only the project owner may delete")
+      }
     }
   })
 
   // GET RECOMMENDED PROJECTS [AUTH]
   app.get('/projects/recommended', tools.authenticateToken, async(req, res) =>{
-    console.log()
+    const projects = database.Project.find( { tags: { $all: ["red", "blank"] } } )
   })
 
   // MATCH WITH A PROJECT
