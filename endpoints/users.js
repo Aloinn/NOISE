@@ -64,6 +64,13 @@ module.exports = function(app){
       bio: req.body.bio,
       projects: [],
       tags: req.body.tags,
+      site: "",
+      media: {
+        linkedin: "",
+        github: "",
+        facebook: "",
+        instagram: ""
+      },
       password: hashedPassword
     });
 
