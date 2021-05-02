@@ -46,7 +46,7 @@ module.exports = function(app){
 
   // GET RECOMMENDED PROJECTS [AUTH]
   app.get('/projects/recommended', tools.authenticateToken, async(req, res) =>{
-    const projects = await database.Project.find( { tags: { $in: req.user.tags }, owner: { $ne: req.user._id} } )
+    const projects = await database.Project.find( { tags: { $in: req.user.tags } } )
     res.status(200).send(projects)
   })
 

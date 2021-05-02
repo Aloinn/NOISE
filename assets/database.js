@@ -23,7 +23,7 @@ const userSchema = new Schema({
 const projectSchema = new Schema({
   name: String,
   description: String,
-  images: String,
+  images: [String],
   tags: [String],
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
   collaborators: [{ type: Schema.ObjectId, ref: 'User' }],

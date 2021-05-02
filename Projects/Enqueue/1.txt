@@ -1,0 +1,3 @@
+"name": "Enqueue",
+"description": "Enqueue is the solution to long lines and wait times. Our app decreases your exposure to others and allows you to wait for stores in the comfort of your car or anywhere else you’d like to be. Other in-app features include the ability to view store capacities and wait times, a map/search feature and accessibility features (different colour themes for the colour blind and text to speech).",
+"tags": ["front-end developer", "ui designer"]

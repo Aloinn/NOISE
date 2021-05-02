@@ -1,0 +1,48 @@
+{
+	"name": "Allison Still",
+	"email": "AW@noise",
+	"password": "p",
+	"image": "https://ruhacks-noise.s3.ca-central-1.amazonaws.com/8.jpg"
+}
+
+{
+	"name": "Alek Kenderwood",
+	"email": "KW@noise",
+	"password": "p",
+	"image": "https://ruhacks-noise.s3.ca-central-1.amazonaws.com/7.jpg"
+}
+
+{
+	"name": "Steven Cook",
+	"email": "SC@noise",
+	"password": "p",
+	"image": "https://ruhacks-noise.s3.ca-central-1.amazonaws.com/6.jpg"
+}
+
+{
+	"name": "Toyvan Hoang",
+	"email": "TH@noise",
+	"password": "p",
+	"image": "https://ruhacks-noise.s3.ca-central-1.amazonaws.com/5.jpg"
+}
+
+{
+	"name": "Trai Enriques",
+	"email": "TE@noise",
+	"password": "p",
+	"image": "https://ruhacks-noise.s3.ca-central-1.amazonaws.com/4.jpg"
+}
+
+{
+	"name": "Mark Zyck",
+	"email": "MZ@noise",
+	"password": "p",
+	"image": "https://ruhacks-noise.s3.ca-central-1.amazonaws.com/2.jpg"
+}
+
+{
+	"name": "Tiffany Lai",
+	"email": "TL@noise",
+	"password": "p",
+	"image": "https://ruhacks-noise.s3.ca-central-1.amazonaws.com/1.jpg"
+}
