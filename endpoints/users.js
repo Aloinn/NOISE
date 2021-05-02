@@ -28,6 +28,8 @@ module.exports = function(app){
     if(req.body.email!=null){user.email = req.body.email}
     if(req.body.bio!=null){user.bio = req.body.bio}
     if(req.body.tags!=null){user.tags = req.body.tags}
+    if(req.body.site!=null){user.site = req.body.site}
+    if(req.body.media!=null){user.media = req.body.media}
     user.save()
     res.status(200).json({user})
 
@@ -67,7 +69,7 @@ module.exports = function(app){
 
     // GIVE USER JSONWEBTOKEN
     const accessToken = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET)
-    res.status(200).json({accessToken: accessToken, user:user._id})
+    res.status(200).json({accessToken: accessToken, user:user._id, profile:user})
 
   })
 
@@ -86,7 +88,7 @@ module.exports = function(app){
 
           // SUCCESSFUL LOGIN, SET JSONWEBTOKEN
           const accessToken = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET)
-          res.status(200).json({accessToken: accessToken, user:user._id})
+          res.status(200).json({accessToken: accessToken, user:user._id, profile:user})
 
           //UNSUCESSFUL
         } else {res.status(400).send("Not allowed")}

@@ -7,6 +7,7 @@ async function connect(){
   const uri = "mongodb+srv://vietdemons:coolbeans@cluster0.ulape.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
   mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
   db = mongoose.connection;
+  //await User.update({},{$set:{media:{linkedin:"",github:"",facebook:"",instagram:""}}},{multi:true})
 }
 
 
@@ -15,6 +16,13 @@ const userSchema = new Schema({
   city: String,
   bio: String,
   email: String,
+  site: String,
+  media: {
+    linkedin:String,
+    github:String,
+    facebook:String,
+    instagram:String
+  },
   projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }],
   tags: [String],
   password: String,
