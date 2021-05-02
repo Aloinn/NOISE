@@ -23,11 +23,11 @@ module.exports = function(app){
     if (user==null){ return res.status(400).send("User does not exist")}
 
     // SUCCESS
-    user.name = req.body.name,
-    user.city = req.body.city,
-    user.email = req.body.email,
-    user.bio = req.body.bio,
-    user.tags = req.body.tags
+    if(req.body.name!=null){user.name = req.body.name}
+    if(req.body.city!=null){user.city = req.body.city}
+    if(req.body.email!=null){user.email = req.body.email}
+    if(req.body.bio!=null){user.bio = req.body.bio}
+    if(req.body.tags!=null){user.tags = req.body.tags}
     user.save()
     res.status(200).json({user})
 
