@@ -10,10 +10,11 @@ module.exports = function(app){
     // PUSH TO DATABASE
     const user = await database.User.findOne({"_id": req.user._id})
 
+    console.log(req.body.images)
     const project = await database.Project.create({
       name: req.body.name,
       description: req.body.description,
-      images: req.body.image,
+      images: req.body.images,
       tags: req.body.tags,
       owner: user._id,
       collaborators: req.body.collaborators
@@ -46,7 +47,7 @@ module.exports = function(app){
 
   // GET RECOMMENDED PROJECTS [AUTH]
   app.get('/projects/recommended', tools.authenticateToken, async(req, res) =>{
-    const projects = await database.Project.find( { tags: { $in: req.user.tags } } )
+    const projects = await database.Project.find( { tags: { $in: req.user.tags } } ).populate('owner')
     res.status(200).send(projects)
   })
 

@@ -1,10 +1,40 @@
-POST https://ruhack-noise.herokuapp.com/projects
+POST http://localhost:8013/projects
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGU0YmY1YmUyNjJkMDAxNTIxMjIxNSIsIm5hbWUiOiJBbGFpbiBMYW0iLCJjaXR5IjoiVG9yb250byIsImVtYWlsIjoiYWxhaW5Abm9pc2UiLCJwYXNzd29yZCI6IiQyYiQxMCRiQmFhdy95NzNVSVJja3dvZ0NWUVNPb2paaTI0L3RPMndZQjlQVUpWc1N6Qm96M0ttNnQxSyIsIl9fdiI6MH0sImlhdCI6MTYxOTkzODY3OX0.UBpKZWkbwc95zKDLyMBGF7S_lJ8nuBZwX3pSsWNtY58
 Content-type: application/json
 
 {
   "name": "Enqueue",
   "description": "Enqueue is the solution to long lines and wait times. Our app decreases your exposure to others and allows you to wait for stores in the comfort of your car or anywhere else you’d like to be. Other in-app features include the ability to view store capacities and wait times, a map/search feature and accessibility features (different colour themes for the colour blind and text to speech).",
-  "images": ["https://ruhacks-noise.s3.ca-central-1.amazonaws.com/Enqueue/1.png","https://ruhacks-noise.s3.ca-central-1.amazonaws.com/Enqueue/2.png"],
+  "images": ["https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/Enqueue/1.png","https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/Enqueue/2.png"],
   "tags": ["front-end developer", "ui designer"]
+}
+
+---
+
+POST https://ruhack-noise.herokuapp.com/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGU0YmY1YmUyNjJkMDAxNTIxMjIxNSIsIm5hbWUiOiJBbGFpbiBMYW0iLCJjaXR5IjoiVG9yb250byIsImVtYWlsIjoiYWxhaW5Abm9pc2UiLCJwYXNzd29yZCI6IiQyYiQxMCRiQmFhdy95NzNVSVJja3dvZ0NWUVNPb2paaTI0L3RPMndZQjlQVUpWc1N6Qm96M0ttNnQxSyIsIl9fdiI6MH0sImlhdCI6MTYxOTkzODY3OX0.UBpKZWkbwc95zKDLyMBGF7S_lJ8nuBZwX3pSsWNtY58
+Content-type: application/json
+
+{
+  "name": "Link up",
+  "description": "A web application to ease the struggles of making friends in an online environment during the pandemic. Complete a simple questionnaire and get matched with people!",
+  "images": ["https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/LinkUp/1.png","https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/LinkUp/2.png"],
+  "tags": ["front-end developer", "ui designer"]
+}
+
+// http://localhost:8013/
+// https://ruhack-noise.herokuapp.com
+
+
+---
+
+POST http://localhost:8013/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGU0YmY1YmUyNjJkMDAxNTIxMjIxNSIsIm5hbWUiOiJBbGFpbiBMYW0iLCJjaXR5IjoiVG9yb250byIsImVtYWlsIjoiYWxhaW5Abm9pc2UiLCJwYXNzd29yZCI6IiQyYiQxMCRiQmFhdy95NzNVSVJja3dvZ0NWUVNPb2paaTI0L3RPMndZQjlQVUpWc1N6Qm96M0ttNnQxSyIsIl9fdiI6MH0sImlhdCI6MTYxOTkzODY3OX0.UBpKZWkbwc95zKDLyMBGF7S_lJ8nuBZwX3pSsWNtY58
+Content-type: application/json
+
+{
+  "name": "Link up",
+  "description": "This app is made to ease the process of booking appointments. Users are able to track their appointments, medical history and even well chat with medical professionals for any health inquiries.",
+  "images": ["https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/Open+Book/1.png","https:/\/ruhacks-noise.s3.ca-central-1.amazonaws.com/Open+Book/1.png"],
+  "tags": ["front-end developer"]
 }
