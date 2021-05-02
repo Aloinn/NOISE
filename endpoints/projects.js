@@ -24,29 +24,30 @@ module.exports = function(app){
   })
 
   // GET PROJECT USING ID
-  app.get('/projects/:id', async (req, res)=>{
+  app.get('/project/:id', async (req, res)=>{
+    if(mongoose.Types.ObjectId.isValid(req.params.id)){ return res.status(400).send("Project does not exist")}
     const project = await database.Project.findOne({"_id": req.params.id})
     if (project==null){ return res.status(400).send("Project does not exist")}
-    else{ res.status(200).json({project}) }
+
+    // SUCCESS
+    res.status(200).json({project})
   })
 
   // DELETE PROJECT
-  app.delete('/projects/:id', tools.authenticateToken, async (req, res)=>{
+  app.delete('/project/:id', tools.authenticateToken, async (req, res)=>{
     const project = await database.Project.findOne({"_id": req.params.id})
     if (project==null){ return res.status(400).send("Project does not exist")}
-    else{
-      if(req.user._id.toString() == project.owner.toString()){
-        const project = await database.Project.findOneAndDelete({"_id": req.params.id})
-        res.status(200).send("Project deleted!")
-      } else {
-        res.status(400).send("Only the project owner may delete")
-      }
-    }
+    if(req.user._id.toString() != project.owner.toString()){res.status(400).send("Only the project owner may delete")}
+
+    // SUCCESS
+    await database.Project.findOneAndDelete({"_id": req.params.id})
+    res.status(200).send("Project deleted!")
   })
 
   // GET RECOMMENDED PROJECTS [AUTH]
   app.get('/projects/recommended', tools.authenticateToken, async(req, res) =>{
-    const projects = database.Project.find( { tags: { $all: ["red", "blank"] } } )
+    const projects = await database.Project.find( { tags: { $in: req.user.tags }, owner: { $ne: req.user._id} } )
+    res.status(200).send(projects)
   })
 
   // MATCH WITH A PROJECT

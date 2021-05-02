@@ -1,0 +1,67 @@
+---
+
+POST http://localhost:8013/users
+Content-type: application/json
+
+{
+    "email": "wxxnx@",
+    "password": "pass",
+    "name": "ween",
+    "city": "Toronto",
+    "bio": "Hello friends"
+}
+
+---
+
+POST http://localhost:8013/users/login
+Content-type: application/json
+
+{
+    "email": "wxxnx@",
+    "password": "pass"
+}
+
+---
+
+PUT http://localhost:8013/user/608e0b98f3488c49b0fa7eb0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGUwYjk4ZjM0ODhjNDliMGZhN2ViMCIsIm5hbWUiOiJ3ZWVuIiwiZW1haWwiOiJ3eHhuQCIsInBhc3N3b3JkIjoiJDJiJDEwJHdOY2JCUmFDMHFESzRhQkRhY0Jub09seUZ4cmhrWkcvckJPZXZ5L3BQUTJRT2Exc0l3aTNtIiwiX192IjowfSwiaWF0IjoxNjE5OTIxODE2fQ.dXl1rY-CUNB3C40f_z9p9rrw-xK5IZ4OBDqF6EYH_qE
+Content-type: application/json
+
+{
+  "tags": ["developer"]
+}
+
+---
+
+GET http://localhost:8013/user/as
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGUwYjk4ZjM0ODhjNDliMGZhN2ViMCIsIm5hbWUiOiJ3ZWVuIiwiZW1haWwiOiJ3eHhuQCIsInBhc3N3b3JkIjoiJDJiJDEwJHdOY2JCUmFDMHFESzRhQkRhY0Jub09seUZ4cmhrWkcvckJPZXZ5L3BQUTJRT2Exc0l3aTNtIiwiX192IjowfSwiaWF0IjoxNjE5OTIxODE2fQ.dXl1rY-CUNB3C40f_z9p9rrw-xK5IZ4OBDqF6EYH_qE
+Content-type: application/json
+
+{
+  "test": "a"
+}
+
+---
+
+GET http://localhost:8013/projects/recommended
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGUwYjk4ZjM0ODhjNDliMGZhN2ViMCIsIm5hbWUiOiJ3ZWVuIiwiZW1haWwiOiJ3eHhuQCIsInBhc3N3b3JkIjoiJDJiJDEwJHdOY2JCUmFDMHFESzRhQkRhY0Jub09seUZ4cmhrWkcvckJPZXZ5L3BQUTJRT2Exc0l3aTNtIiwiX192IjowfSwiaWF0IjoxNjE5OTIxODE2fQ.dXl1rY-CUNB3C40f_z9p9rrw-xK5IZ4OBDqF6EYH_qE
+Content-type: application/json
+
+{
+  "test": "a"
+}
+
+---
+
+POST http://localhost:8013/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2plY3RzIjpbXSwidGFncyI6W10sIl9pZCI6IjYwOGUwOTgyMzNkNzJiMjQzY2JhNjEwOSIsIm5hbWUiOiJva3FpIiwiZW1haWwiOiJva3FpQCIsInBhc3N3b3JkIjoiJDJiJDEwJG8uYmJ0TVhIb0Q2MmtqSmt1TVpJZmVxSUtiZ2RoU0txa3hCckFHLktJdmMvNDlEcndiWm5LIiwiX192IjowfSwiaWF0IjoxNjE5OTIxMjgyfQ.Bp88XwwocbKscRCCVIJSPE1NU7_BaHUal24-dNuFTNk
+Content-type: application/json
+
+{
+  "name": "NOISE",
+  "description": "TINDER MEETS LINKEDIN",
+  "images": "link",
+  "tags": ["developer", "designer"]
+}
+
+---

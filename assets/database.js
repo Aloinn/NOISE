@@ -12,6 +12,8 @@ async function connect(){
 
 const userSchema = new Schema({
   name: String,
+  city: String,
+  bio: String,
   email: String,
   projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }],
   tags: [String],
